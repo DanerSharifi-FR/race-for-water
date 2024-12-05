@@ -33,7 +33,7 @@
 			createWorld : function(context) {
 		         var world = new b2World(
 		        		 new b2Vec2(0, 10),	// gravité
-		        		 true				// doSleep
+		        		 false				// doSleep
 		        );
 
 		         // Définir la méthode d'affichage du débug
@@ -135,6 +135,28 @@
 				};
 				// Appel à createBody()
 				return this.createBody('ball', world, x, y, dimensions, fixed, userData);
-			}
+			},
+
+		createPolygon: function(world, x, y, fixed, userData, positions) {
+			var shape = new b2PolygonShape();
+
+			// Convertir les positions en sommets relatifs à l'échelle Box2D
+			var vertices = positions.map(pos => new b2Vec2(pos.x / this.SCALE, pos.y / this.SCALE));
+			shape.SetAsArray(vertices, vertices.length);
+
+			var fixtureDef = new b2FixtureDef();
+			fixtureDef.shape = shape;
+			fixtureDef.density = fixed ? 0 : 1.0; // Densité nulle pour objets statiques
+			fixtureDef.restitution = 0.5;
+			fixtureDef.friction = 0.5;
+			fixtureDef.userData = userData;
+
+			var bodyDef = new b2BodyDef();
+			bodyDef.type = fixed ? b2Body.b2_staticBody : b2Body.b2_dynamicBody;
+			bodyDef.position.Set(x / this.SCALE, y / this.SCALE);
+
+			return world.CreateBody(bodyDef).CreateFixture(fixtureDef);
+		}
+
 	}
 }());
