@@ -135,7 +135,7 @@
                 radius: radius
             };
             // Appel à createBody()
-            return this.createBody('ball', world, x, y, dimensions, fixed, userData);
+            return this.createBody('ball', world, x, y, dimensions, fixed, userData).GetBody();
         },
 
         createPolygon: function (world, x, y, fixed, userData, positions) {

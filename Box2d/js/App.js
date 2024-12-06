@@ -70,10 +70,17 @@
                 {x: -10, y: -40}
             ])
 
-        rightTire = box2dUtils.createBall(world, 230, 220, 10, false, 'customBall');
-        leftTire = box2dUtils.createBall(world, 160, 220, 10, false, 'customBall');
+        rightTire = box2dUtils.createBall(world, 265, 240, 10, false, 'customBall');
 
-        // box2dUtils.createElasticJoint(world, rightTire, car, 0, 0, 0, 0);
+        leftTire = box2dUtils.createBall(world, 160, 240, 10, false, 'customBall');
+
+        var prismaticJointDefRight = new Box2D.Dynamics.Joints.b2PrismaticJointDef();
+        prismaticJointDefRight.Initialize(car, rightTire, rightTire.GetWorldCenter(), new Box2D.Common.Math.b2Vec2(0, 1));
+        prismaticJointDefRight.lowerTranslation = -0.5;
+        prismaticJointDefRight.upperTranslation = 0.5;
+        prismaticJointDefRight.enableLimit = true;
+
+        var prismaticJointRight = world.CreateJoint(prismaticJointDefRight);
 
         // Créer le sol initial
         ground = box2dUtils.the_ground(world, canvasWidth / 2, canvasHeight - 10, canvasWidth / 2, 70, true);
