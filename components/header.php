@@ -11,13 +11,13 @@
     <div class="main-nav nav-top">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light ">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="assets/img/logo-water-for-race.png" alt="Logo">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="index.php" class="nav-link active">
                                 Accueil
                             </a>
                         </li>
@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="contact.php" class="nav-link">
                                 Contact
                             </a>
                         </li>

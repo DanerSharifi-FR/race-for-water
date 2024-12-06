@@ -3,6 +3,25 @@
 // require_once 'includes/auth.php';
 
 // requireUserLoggedIn(false);
+
+require_once 'db/connect.inc.php';
+
+$username = $_COOKIE['username'] ?? '';
+$password = $_COOKIE['password'] ?? '';
+
+if (!empty($username) && !empty($password)) {
+    $query = $pdo->prepare('SELECT * FROM users WHERE username = :username');
+    $query->execute(['username' => $username]);
+
+    $user = $query->fetch();
+
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['name'] = $user['name'];
+        header('Location: user_panel.php');
+        exit;
+    }
+}
+
 $metaTitle = 'Connectez vous';
 
 ob_start();

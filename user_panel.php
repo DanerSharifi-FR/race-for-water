@@ -19,7 +19,11 @@ ob_start();
 ?>
     <br><br>
     <br><br>
-    <h1>Votre code ici</h1>
+    <div class="container">
+        <div class="alert alert-success h1 text-center">
+            Vous avez réussi le captcha !
+        </div>
+    </div>
 <?php
 $pContent = ob_get_clean();
 
