@@ -322,8 +322,8 @@ function verifyFields() {
 // Sélectionner le bouton
 const envoyerButton = document.getElementById('envoyer');
 // Vitesse de déplacement initiale
-let speedX = 2;
-let speedY = 2;
+let speedX = 8;
+let speedY = 8;
 
 // Position initiale du bouton
 let posX = 0;
