@@ -21,7 +21,7 @@ ob_start();
     <br><br>
     <div class="container">
         <div class="alert alert-success h1 text-center">
-            Vous avez réussi le captcha !
+            Pour en savoir plus cliquez <a href="humain-ocean.php" class="btn btn-success">ICI</a>.
         </div>
     </div>
 <?php
