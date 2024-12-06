@@ -27,7 +27,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="humain-ocean.php" class="nav-link">
                                 Corps Humain & Ocean
                             </a>
                         </li>
