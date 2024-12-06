@@ -17,9 +17,9 @@ $( document ).ready(function() {
 
     // test if your not too early
     var show_months = true;
-    var show_day = true; 
+    var show_day = false; 
     if(today_month != month_request){
-        show_months = true;
+        show_months = false;
     } else {
       if(day_request <= today_day ){
         show_day = true;
@@ -65,7 +65,7 @@ $( document ).ready(function() {
 
 
     // show modal
-    if(show_day ){
+    if(show_day && show_months){
       // load data from md file with day number
       $.get(params.data_folder+day_request+".md", function( data ) {
         // create converter md to html
