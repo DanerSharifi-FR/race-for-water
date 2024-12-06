@@ -258,7 +258,7 @@
     new WOW().init();
 
     // Nice Select JS
-    $('select').niceSelect();
+    //$('select').niceSelect();
     
     // Preloader JS
     jQuery(window).on('load',function(){
