@@ -22,13 +22,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#apropos" class="nav-link">
+                            <a href="#" class="nav-link">
                                 Nous Connaitre
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#organe" class="nav-link">
-                                Corps Humaine & Ocean
+                            <a href="#" class="nav-link">
+                                Corps Humain & Ocean
                             </a>
                         </li>
                         <li class="nav-item">
