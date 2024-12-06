@@ -1,13 +1,17 @@
 (function () {
     var b2FixtureDef = Box2D.Dynamics.b2FixtureDef;
+    var b2Vec2 = Box2D.Common.Math.b2Vec2;
+    var box2dUtils;        // Classe utilitaire
+    var world;             // "Monde" 2D Box2D
+    var canvas;            // Canvas HTML
+    var canvasWidth;       // Largeur du canvas
+    var canvasHeight;      // Hauteur du canvas
+    var context;           // Contexte 2D du canvas
 
-
-    var box2dUtils;		// classe utilitaire
-    var world; 			// "monde" 2dbox
-    var canvas;			// notre canvas
-    var canvasWidth;	// largeur du canvas
-    var canvasHeight;	// hauteur du canvas
-    var context;		// contexte 2d
+    var posX;              // Position X du sol
+    var posY;              // Position Y du sol
+    var lastPosX = 0;      // Dernière position X pour générer le sol
+    var lastPosY = 0;      // Dernière position Y pour générer le sol
 
     // Initialisation
     $(document).ready(function () {
@@ -71,38 +75,61 @@
 
         // box2dUtils.createElasticJoint(world, rightTire, car, 0, 0, 0, 0);
 
-        ground = box2dUtils.the_ground(world, canvasWidth / 2, canvasHeight - 10, canvasWidth / 2, 70 );
+        // Créer le sol initial
+        ground = box2dUtils.the_ground(world, canvasWidth / 2, canvasHeight - 10, canvasWidth / 2, 70, true);
 
+        // Démarrer la mise à jour du jeu
         setInterval(gameUpdate, 1000 / 30); // 30 FPS
 
-
-
-        // Exécuter le rendu de l'environnement 2d
+        // Exécuter le rendu de l'environnement 2D
         window.setInterval(update, 1000 / 60);
     }
 
-    // Mettre à jour le rendu de l'environnement 2d
-    this.update = function () {
-        // effectuer les simulations physiques et mettre à jour le canvas
-        world.Step(1 / 60, 10, 10);
-        world.DrawDebugData();
-        world.ClearForces();
-    }
 
-    this.gameUpdate = function() {
-            // Vitesse du sol (pixels par seconde)
-            var groundSpeed = 2;
-
-            // Mise à jour du sol
-            box2dUtils.updateMovingGround(ground, world, groundSpeed);
-
-            // Mise à jour du monde Box2D
-            world.Step(1 / 30, 10, 10);
+        // Mettre à jour le rendu de l'environnement 2D
+        this.update = function () {
+            // Effectuer les simulations physiques et mettre à jour le canvas
+            world.Step(1 / 60, 10, 10);
             world.DrawDebugData();
             world.ClearForces();
-            ground = box2dUtils.the_ground2(world, canvasWidth / 2, canvasHeight - 10, canvasWidth / 2, 70 );
-
         }
+
+
+
+    this.gameUpdate = function () {
+        // Paramètres
+        var segmentLength = 100, pointCount = 5;
+
+        // Créer un tableau de points pour chaque segment
+        var segment = [];
+        for (var i = 0; i < pointCount; i++) {
+            var newX = lastPosX + (i * (segmentLength / (pointCount - 1))); // Position X
+            var newY = lastPosY + (Math.random() * 400 - 20); // Variation Y aléatoire
+            segment.push({ x: newX, y: newY });
+        }
+
+        // Fermer le segment avec les points bas du sol
+        segment.unshift({ x: segment[0].x, y: canvasHeight - 10 });
+        segment.push({ x: segment[segment.length - 1].x, y: canvasHeight - 10 });
+
+        // Ajouter ce segment de terrain au monde Box2D
+        box2dUtils.addPolygon(world, lastPosX, lastPosY, true, 'groundSegment', ground, segment);
+
+        //box = box2dUtils.createBox( world, lastPosX, lastPosY, 40, 50, true, "box");
+
+        // Mettre à jour les positions pour le prochain segment
+        lastPosX = segment[segment.length - 1].x;
+        lastPosY = segment[segment.length - 1].y;
+
+    }
+
+
+
+
+
+
+
+
 
 
 }());

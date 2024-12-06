@@ -106,7 +106,7 @@
          * @param Number width : la largeur de la box
          * @param Number height : la hauteur de la box
          * @param Boolean fixed : la box est-elle statique ou dynamique
-         * @param * userData : propriétés spécifiques de la box
+         * @param userData : propriétés spécifiques de la box
          * @return la box dans le monde 2dbox
          */
         createBox: function (world, x, y, width, height, fixed, userData) {
@@ -167,6 +167,7 @@
             // Retourner le corps mis à jour
             return body;
         },
+
         createElasticJoint: function (world, bodyA, bodyB, x1, y1, x2, y2) {
             // Créer un joint de type DistanceJoint (imite un ressort)
 			var jointDef = new b2DistanceJointDef();
@@ -178,11 +179,11 @@
 			jointDef.frequencyHz = 2.0; // Frequency of the "spring" (set for spring behavior)
 			jointDef.dampingRatio = 0.5; // Damping ratio for the "spring"
 
-// Create the joint in the world
+            // Create the joint in the world
 			return world.CreateJoint(jointDef);
 		},
 
-		the_ground: function(world, x, y, width, height, fixed = true) {
+		the_ground: function(world, x, y, width, height, fixed ) {
             // Crée le corps physique du sol
             var bodyDef = new b2BodyDef();
             bodyDef.position.Set(x / this.SCALE, y / this.SCALE);
@@ -200,25 +201,6 @@
 
             return groundBody;
 
-        },
-
-        the_ground2: function(world, x, y, width, height, fixed = true) {
-            // Crée le corps physique du sol
-            var bodyDef = new b2BodyDef();
-            bodyDef.position.Set(x / this.SCALE, y / this.SCALE);
-
-            var shape = new b2PolygonShape();
-            shape.SetAsBox(width / this.SCALE, height / this.SCALE);
-
-            var fixtureDef = new b2FixtureDef();
-            fixtureDef.shape = shape;
-            fixtureDef.friction = 0.9;
-            fixtureDef.restitution = 0.1;
-
-            var groundBody = world.CreateBody(bodyDef);
-            groundBody.CreateFixture(fixtureDef);
-
-            return groundBody;
         },
 
 
@@ -228,10 +210,7 @@
             var newX = currentPosition.x - (speed / this.SCALE);
 
             ground.SetPosition(new b2Vec2(newX, currentPosition.y));
-        }
-
-
-
+        },
 
     }
 }());
