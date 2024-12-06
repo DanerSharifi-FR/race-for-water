@@ -9,6 +9,9 @@ ob_start();
 ?>
 
     <!-- Start Sidebar Modal -->
+
+    
+
     <div class="sidebar-modal">
         <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
              aria-hidden="true">
