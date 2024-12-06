@@ -25,7 +25,7 @@
         world = box2dUtils.createWorld(context); // box2DWorld
 
         // Créer le "sol" de notre environnement physique
-        ground= box2dUtils.createBox(world, canvasWidth / 2, canvasHeight - 10, canvasWidth / 2, 10, true, 'ground');
+        //ground= box2dUtils.createBox(world, canvasWidth / 2, canvasHeight - 10, canvasWidth / 2, 10, true, 'ground');
 
         car=box2dUtils.createPolygon(
             world,
@@ -44,7 +44,14 @@
             {x :150,y:-21}
         ]
 
+
     );
+
+        ground = box2dUtils.the_ground(world, canvasWidth / 2, canvasHeight - 10, canvasWidth / 2, 70 );
+
+        setInterval(gameUpdate, 1000 / 30); // 30 FPS
+
+
 
         // Exécuter le rendu de l'environnement 2d
         window.setInterval(update, 1000 / 60);
@@ -57,5 +64,21 @@
         world.DrawDebugData();
         world.ClearForces();
     }
+
+    this.gameUpdate = function() {
+            // Vitesse du sol (pixels par seconde)
+            var groundSpeed = 2;
+
+            // Mise à jour du sol
+            box2dUtils.updateMovingGround(ground, world, groundSpeed);
+
+            // Mise à jour du monde Box2D
+            world.Step(1 / 30, 10, 10);
+            world.DrawDebugData();
+            world.ClearForces();
+            ground = box2dUtils.the_ground2(world, canvasWidth / 2, canvasHeight - 10, canvasWidth / 2, 70 );
+
+        }
+
 
 }());

@@ -156,7 +156,67 @@
 			bodyDef.position.Set(x / this.SCALE, y / this.SCALE);
 
 			return world.CreateBody(bodyDef).CreateFixture(fixtureDef);
-		}
+		},
+
+		the_ground: function(world, x, y, width, height, fixed = true) {
+            // Crée le corps physique du sol
+            var bodyDef = new b2BodyDef();
+            bodyDef.position.Set(x / this.SCALE, y / this.SCALE);
+
+            var shape = new b2PolygonShape();
+            shape.SetAsBox(width / this.SCALE, height / this.SCALE);
+
+            var fixtureDef = new b2FixtureDef();
+            fixtureDef.shape = shape;
+            fixtureDef.friction = 0.9;
+            fixtureDef.restitution = 0.1;
+
+            var groundBody = world.CreateBody(bodyDef);
+            groundBody.CreateFixture(fixtureDef);
+
+            return groundBody;
+
+        },
+
+        the_ground2: function(world, x, y, width, height, fixed = true) {
+            // Crée le corps physique du sol
+            var bodyDef = new b2BodyDef();
+            bodyDef.position.Set(x / this.SCALE, y / this.SCALE);
+
+            var shape = new b2PolygonShape();
+            shape.SetAsBox(width / this.SCALE, height / this.SCALE);
+
+            var fixtureDef = new b2FixtureDef();
+            fixtureDef.shape = shape;
+            fixtureDef.friction = 0.9;
+            fixtureDef.restitution = 0.1;
+
+            var groundBody = world.CreateBody(bodyDef);
+            groundBody.CreateFixture(fixtureDef);
+
+            return groundBody;
+        },
+
+
+        updateMovingGround: function(ground, world, speed) {
+            // Avancer le sol vers la gauche en ajustant sa position
+            var currentPosition = ground.GetPosition();
+            var newX = currentPosition.x - (speed / this.SCALE);
+
+            ground.SetPosition(new b2Vec2(newX, currentPosition.y));
+        },
+
+
+
+
+
+
+
+
+
+
+
+
 
 	}
 }());
