@@ -103,8 +103,8 @@ ob_start();
                                     Et si l'Ocean était un <b>corps humain</b> ?
                                 </p>
                                 <div class="banner-btn">
-                                    <a href="#apropos" class="banner-btn1 border-radius">En Savoir Plus</a>
-                                    <a href="#toutenbas" class="banner-btn2 border-radius ml-20">Nous Contacter</a>
+                                    <a href="login.php" class="banner-btn1 border-radius">En Savoir Plus</a>
+                                    <a href="contact.php" class="banner-btn2 border-radius ml-20">Nous Contacter</a>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +160,7 @@ ob_start();
 
                         </p>
                         <div class="about-more-btn">
-                            <a href="about.html" class="default-btn4">En savoir plus</a>
+                            <a href="about.php" class="default-btn4">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -183,10 +183,10 @@ ob_start();
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item box-shadow">
-                        <a href="service-details.html" class="service-item-icon">
+                        <a href="#" class="service-item-icon">
                             <img src="assets/img/coeur.png" alt="Service Icon" width="80" height="80">
                         </a>
-                        <a href="service-details.html" class="service-head">
+                        <a href="#" class="service-head">
                             <h3>Le Coeur</h3>
                         </a>
                         <p>
@@ -197,10 +197,10 @@ ob_start();
 
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item box-shadow">
-                        <a href="service-details.html" class="service-item-icon">
+                        <a href="#" class="service-item-icon">
                             <img src="assets/img/poumon.png" alt="Service Icon" width="80" height="80">
                         </a>
-                        <a href="service-details.html" class="service-head">
+                        <a href="#" class="service-head">
                             <h3>Les Poumons</h3>
                         </a>
                         <p>
@@ -211,10 +211,10 @@ ob_start();
 
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item box-shadow">
-                        <a href="service-details.html" class="service-item-icon">
+                        <a href="#" class="service-item-icon">
                             <img src="assets/img/os.png" alt="Service Icon" width="80" height="80">
                         </a>
-                        <a href="service-details.html" class="service-head">
+                        <a href="#" class="service-head">
                             <h3>Le Squelette</h3>
                         </a>
                         <p>
@@ -225,10 +225,10 @@ ob_start();
 
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item box-shadow">
-                        <a href="service-details.html" class="service-item-icon">
+                        <a href="#" class="service-item-icon">
                             <img src="assets/img/peau.png" alt="Service Icon" width="80" height="80">
                         </a>
-                        <a href="service-details.html" class="service-head">
+                        <a href="#" class="service-head">
                             <h3>La Peau</h3>
                         </a>
                         <p>
@@ -239,10 +239,10 @@ ob_start();
 
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item box-shadow">
-                        <a href="service-details.html" class="service-item-icon">
+                        <a href="#" class="service-item-icon">
                             <img src="assets/img/digestion.png" alt="Service Icon" width="80" height="80">
                         </a>
-                        <a href="service-details.html" class="service-head">
+                        <a href="#" class="service-head">
                             <h3>Le Système digestif </h3>
                         </a>
                         <p>
@@ -253,10 +253,10 @@ ob_start();
 
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item box-shadow">
-                        <a href="service-details.html" class="service-item-icon">
+                        <a href="#" class="service-item-icon">
                             <img src="assets/img/nerf.png" alt="Service Icon" width="80" height="80">
                         </a>
-                        <a href="service-details.html" class="service-head">
+                        <a href="#" class="service-head">
                             <h3>Le Système nerveux</h3>
                         </a>
                         <p>
