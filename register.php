@@ -3,7 +3,7 @@
 // require_once 'includes/auth.php';
 
 // requireUserLoggedIn(false);
-$metaTitle = 'TP5 Dev. Web by Daner SHARIFI';
+$metaTitle = 'Inscrivez vous';
 
 ob_start();
 ?>
@@ -16,26 +16,26 @@ ob_start();
                     <h3>Inscrivez vous</h3>
                 </div>
                 <div class="form-sing">
-                    <form>
+                    <form method="post" action="handle_register.php">
                         <div class="row justify-content-center">
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="fullname">Nom complet</label>
-                                    <input id="fullname" type="text" class="form-control" placeholder="Nom Complet">
+                                    <label for="name">Nom complet</label>
+                                    <input id="name" name="name" type="text" class="form-control" placeholder="Nom Complet">
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="username">Nom d'Utilsateur</label>
-                                    <input id="username" type="text" class="form-control" placeholder="Nom d'Utilisateur">
+                                    <label for="username">Nom d'Utilisateur</label>
+                                    <input id="username" name="username" type="text" class="form-control" placeholder="Nom d'Utilisateur">
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label for="password">Mot de passe</label>
-                                    <input id="password" type="password" class="form-control" placeholder="Mot de Passe">
+                                    <input id="password" name="password" type="password" class="form-control" placeholder="Mot de Passe">
                                 </div>
                             </div>
 
